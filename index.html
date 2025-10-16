@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>A Athithiyan • Full-Stack Java Developer</title>
+    <meta name="description" content="Portfolio of A Athithiyan — Full-Stack Java Developer specialized in Java, Spring Boot, MySQL, and modern web development." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'ui-sans-serif', 'Segoe UI', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
+              mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
+            },
+            colors: {
+              brand: {
+                50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc',
+                400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca',
+                800: '#3730a3', 900: '#312e81'
+              }
+            },
+            boxShadow: {
+              soft: '0 10px 30px -12px rgba(0,0,0,0.25)'
+            },
+            keyframes: {
+              fadeInUp: { '0%': { opacity: 0, transform: 'translateY(12px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
+              shimmer: { '0%': { backgroundPosition: '200% 0' }, '100%': { backgroundPosition: '-200% 0' } }
+            },
+            animation: {
+              fadeInUp: 'fadeInUp .6s ease-out both',
+              shimmer: 'shimmer 2s linear infinite'
+            }
+          }
+        }
+      }
+    </script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 selection:bg-brand-300/40">
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/65 dark:supports-[backdrop-filter]:bg-zinc-950/50 border-b border-zinc-200/60 dark:border-zinc-800">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <a href="#home" class="flex items-center gap-2 group">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-tr from-brand-500 to-fuchsia-500 text-white font-bold shadow-soft">A</span>
+            <span class="font-semibold tracking-tight">A Athithiyan</span>
+          </a>
+
+          <nav class="hidden md:flex items-center gap-7 text-sm">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </nav>
+
+          <div class="flex items-center gap-3">
+            <button id="themeToggle" aria-label="Toggle dark mode" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900">
+              <svg id="sun" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:inline" viewBox="0 0 24 24" fill="currentColor"><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zm10.48 0l1.79-1.8 1.41 1.41-1.8 1.79-1.4-1.4zM1 13h3v-2H1v2zm19 0h3v-2h-3v2zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM6.76 19.16l-1.42 1.42-1.79-1.8 1.41-1.41 1.8 1.79zm12.69-.38l1.8 1.79-1.41 1.41-1.79-1.8 1.4-1.4z"/><circle cx="12" cy="12" r="5"/></svg>
+              <svg id="moon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M12.74 2.25a9 9 0 108.99 11.01A7 7 0 0112.74 2.25z"/></svg>
+            </button>
+            <button id="mobileMenuBtn" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900" aria-label="Open menu">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+          </div>
+        </div>
+        <div id="mobileMenu" class="md:hidden hidden border-t border-zinc-200 dark:border-zinc-800 py-2">
+          <nav class="flex flex-col gap-1 py-2">
+            <a href="#home" class="mobile-link">Home</a>
+            <a href="#about" class="mobile-link">About</a>
+            <a href="#skills" class="mobile-link">Skills</a>
+            <a href="#projects" class="mobile-link">Projects</a>
+            <a href="#experience" class="mobile-link">Experience</a>
+            <a href="#contact" class="mobile-link">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero / Home -->
+      <section id="home" class="relative overflow-hidden">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-500/10 via-fuchsia-500/5 to-transparent dark:from-brand-400/10 dark:via-fuchsia-400/5"></div>
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+          <div class="grid items-center gap-10 md:grid-cols-2">
+            <div class="space-y-6 animate-fadeInUp">
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm bg-white/70 dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 shadow-soft">
+                <span>👋</span> <span>Welcome to my Portfolio</span>
+              </span>
+              <h1 class="text-5xl sm:text-6xl font-extrabold leading-tight">
+                Hi, I'm <span class="bg-gradient-to-tr from-brand-600 to-fuchsia-600 bg-clip-text text-transparent">A Athithiyan</span>
+              </h1>
+              <p class="text-xl text-zinc-600 dark:text-zinc-300">FullStack Java Software <span class="font-semibold text-brand-700 dark:text-brand-300">Developer</span></p>
+              <p class="font-mono text-brand-700 dark:text-brand-300"><span class="opacity-70">I work with</span> <span id="typed" class="border-r-2 border-brand-600 dark:border-brand-300 pr-1"></span></p>
+              <div class="flex flex-wrap gap-3 pt-2">
+                <a href="#contact" class="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-5 py-3 text-white shadow-soft hover:bg-brand-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M21 8V7l-3 2-4-3-4 3-4-3-3 2v9h20V8zM5 18H3v2h2v-2zm16 0h-2v2h2v-2z"/></svg>
+                  Get In Touch
+                </a>
+                <a href="https://drive.google.com/file/d/1c8vIMwQJTP60uK3fBHVLrgsu8K0zGhNj/view?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-5 py-3 text-white shadow-soft hover:bg-brand-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5v2zM12 2l-5.5 9h11L12 2z"/></svg>
+                  Download Resume
+                </a>
+                <a href="#projects" class="inline-flex items-center gap-2 rounded-lg border border-zinc-300 dark:border-zinc-700 px-5 py-3 hover:bg-zinc-100 dark:hover:bg-zinc-900">View Projects</a>
+              </div>
+              <div class="pt-4">
+                <div class="flex items-center gap-2">
+                  <a href="http://github.com/Athithiyan01" target="_blank" rel="noopener" class="inline-flex h-10 w-10 items-center justify-center rounded-lg" aria-label="GitHub" style="background:#24292e">
+                    <svg viewBox="0 0 16 16" class="h-5 w-5" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38l-.01-1.33c-2.23.49-2.7-1.07-2.7-1.07-.36-.93-.89-1.18-.89-1.18-.73-.5.06-.49.06-.49.81.06 1.24.83 1.24.83.72 1.23 1.9.87 2.36.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.53 7.53 0 012 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.45.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                  </a>
+                  <a href="http://linkedin.com/in/athithiyan01" target="_blank" rel="noopener" class="inline-flex h-10 w-10 items-center justify-center rounded-lg" aria-label="LinkedIn" style="background:#0a66c2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5" fill="#fff"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 5 2.12 5 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-1 1.8-2.2 3.8-2.2 4.1 0 4.8 2.7 4.8 6.2V24h-4v-7.1c0-1.7 0-3.9-2.4-3.9s-2.8 1.9-2.8 3.8V24h-4V8z"/></svg>
+                  </a>
+                  <a href="mailto:aathithiyan01@gmail.com" class="inline-flex h-10 px-3 items-center justify-center rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-sm">Email</a>
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-center md:justify-end">
+              <div class="relative">
+                <div class="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-brand-500 to-fuchsia-500 opacity-20 blur"></div>
+                <img src="assets/profile.jpg" alt="A Athithiyan" class="relative h-56 w-56 sm:h-72 sm:w-72 rounded-2xl object-cover border border-zinc-200 dark:border-zinc-800 shadow-soft shadow-xl ring-2 ring-white dark:ring-zinc-900" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+        <div class="grid md:grid-cols-3 gap-10">
+          <div class="md:col-span-2 space-y-4">
+            <h2 class="text-2xl font-bold">About Me</h2>
+            <p class="text-zinc-600 dark:text-zinc-300">I'm a dedicated Full-Stack Java developer focused on building robust backends with Spring Boot and clean, responsive UIs with modern web technologies. I bring strong problem-solving skills, domain exposure in product-style web apps, and proven leadership in team settings.</p>
+            <p class="text-zinc-600 dark:text-zinc-300">I value time management, collaboration, and continuous learning. I enjoy translating ideas into scalable software and delivering production-ready solutions.</p>
+            <ul class="mt-4 grid sm:grid-cols-3 gap-3">
+              <li class="highlight">Problem Solving</li>
+              <li class="highlight">Time Management</li>
+              <li class="highlight">Teamwork</li>
+            </ul>
+          </div>
+          <div>
+            <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5">
+              <h3 class="font-semibold mb-3">Quick Info</h3>
+              <ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-300">
+                <li>Location: Madurai, India</li>
+                <li>Focus: Java • Spring Boot • Web</li>
+                <li>Open to: Full-time • Internships</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+        <h2 class="text-2xl font-bold mb-10">Skills</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="space-y-6">
+            <div class="card">
+              <h3 class="card-title">Languages</h3>
+              <div class="space-y-3">
+                <div class="progress"><span>Java</span><div class="bar" data-progress="90"></div></div>
+                <div class="progress"><span>C</span><div class="bar" data-progress="70"></div></div>
+                <div class="progress"><span>C++</span><div class="bar" data-progress="70"></div></div>
+                <div class="progress"><span>Python</span><div class="bar" data-progress="65"></div></div>
+              </div>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Frontend</h3>
+              <div class="space-y-3">
+                <div class="progress"><span>HTML</span><div class="bar" data-progress="90"></div></div>
+                <div class="progress"><span>CSS</span><div class="bar" data-progress="85"></div></div>
+                <div class="progress"><span>JavaScript</span><div class="bar" data-progress="80"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-6">
+            <div class="card">
+              <h3 class="card-title">Backend</h3>
+              <div class="space-y-3">
+                <div class="progress"><span>Spring Boot</span><div class="bar" data-progress="85"></div></div>
+                <div class="progress"><span>REST APIs</span><div class="bar" data-progress="80"></div></div>
+              </div>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Databases</h3>
+              <div class="space-y-3">
+                <div class="progress"><span>MySQL</span><div class="bar" data-progress="85"></div></div>
+                <div class="progress"><span>Oracle</span><div class="bar" data-progress="70"></div></div>
+                <div class="progress"><span>Postgres</span><div class="bar" data-progress="65"></div></div>
+                <div class="progress"><span>Firebase</span><div class="bar" data-progress="75"></div></div>
+              </div>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Tools</h3>
+              <p class="text-sm text-zinc-600 dark:text-zinc-300">Git, GitHub, Docker, Postman, Maven, Gradle, Thymeleaf</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+        <h2 class="text-2xl font-bold mb-10">Projects</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- 1 -->
+          <article class="project">
+            <h3 class="project-title">BookHub Mobile App</h3>
+            <p class="project-desc">A Flutter + Dart mobile app backed by Firebase for discovering and managing books.</p>
+            <p class="stack">Flutter • Dart • Firebase</p>
+            <div class="project-links">
+              <a href="https://github.com/aathi-eng/Book_hub" target="_blank" rel="noopener" class="btn-secondary">GitHub</a>
+            </div>
+          </article>
+          <!-- 2 -->
+          <article class="project">
+            <h3 class="project-title">JobConnect (JFS)</h3>
+            <p class="project-desc">Job portal built with Spring Boot and Thymeleaf with role-based access.</p>
+            <p class="stack">Java • Spring Boot • MySQL • Thymeleaf</p>
+            <div class="project-links">
+              <a href="https://jobconnect-ccy1.onrender.com" target="_blank" rel="noopener" class="btn-primary">Live Demo</a>
+            </div>
+          </article>
+          <!-- 3 -->
+          <article class="project">
+            <h3 class="project-title">Smart-Spend Expense Tracker (JFS)</h3>
+            <p class="project-desc">Track expenses, categories, and insights with secure user accounts.</p>
+            <p class="stack">Java • Spring Boot • MySQL • Thymeleaf</p>
+            <div class="project-links">
+              <a href="https://smart-expense-tracker-mecx.onrender.com" target="_blank" rel="noopener" class="btn-primary">Live Demo</a>
+            </div>
+          </article>
+          <!-- 4 -->
+          <article class="project">
+            <h3 class="project-title">Event Management System (JFS)</h3>
+            <p class="project-desc">Create, manage, and RSVP to events with admin dashboards.</p>
+            <p class="stack">Java • Spring Boot • MySQL • Thymeleaf</p>
+            <div class="project-links">
+              <a href="https://eventmanager-1-yr4x.onrender.com" target="_blank" rel="noopener" class="btn-primary">Live Demo</a>
+            </div>
+          </article>
+          <!-- 5 -->
+          <article class="project">
+            <h3 class="project-title">Calculator</h3>
+            <p class="project-desc">A responsive calculator built with HTML, CSS, JavaScript, and Bootstrap.</p>
+            <p class="stack">HTML • CSS • JavaScript • Bootstrap</p>
+            <div class="project-links">
+              <a href="https://athithiyan01.github.io/calculator" target="_blank" rel="noopener" class="btn-primary">Live Demo</a>
+            </div>
+          </article>
+          
+        </div>
+      </section>
+
+      <!-- Experience & Education -->
+      <section id="experience" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+        <h2 class="text-2xl font-bold mb-10">Experience & Education</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="font-semibold mb-4">Education</h3>
+            <div class="timeline">
+              <div class="item">
+                <h4 class="item-title">Thiagarajar College of Arts and Science</h4>
+                <p class="item-sub">Bachelor of Science in Computer Science • 2022-2025 • Madurai</p>
+              </div>
+              <div class="item">
+                <h4 class="item-title">ST Michael Matric Hr. School</h4>
+                <p class="item-sub">HSC (12th) • 2021-2022 • Madurai</p>
+              </div>
+              <div class="item">
+                <h4 class="item-title">ST Michael Matric Hr. School</h4>
+                <p class="item-sub">SSLC (10th) • 2019-2021 • Madurai</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-4">Certifications</h3>
+            <div class="cert-slider relative">
+              <div class="cert-track" id="certTrack">
+                <a href="assets/guvi-hcl-java-fullstack.png" target="_blank" rel="noopener" class="cert-card">
+                  <img src="assets/guvi-hcl-java-fullstack.png" alt="GUVI HCL - Java Full-Stack Developer" loading="lazy" />
+                  <div class="cert-caption">Java Full-Stack Developer — GUVI HCL</div>
+                </a>
+                <a href="assets/coursera-frontend.jpg" target="_blank" rel="noopener" class="cert-card">
+                  <img src="assets/coursera-frontend.jpg" alt="Coursera - Frontend Development" loading="lazy" />
+                  <div class="cert-caption">Frontend Development — Coursera</div>
+                </a>
+                <a href="assets/ace-training-python.jpg" target="_blank" rel="noopener" class="cert-card">
+                  <img src="assets/ace-training-python.jpg" alt="ACE TRAINING - Python Programmer" loading="lazy" />
+                  <div class="cert-caption">Python Programmer — ACE TRAINING</div>
+                </a>
+              </div>
+              <button class="cert-nav prev" id="certPrev" aria-label="Previous certificate">‹</button>
+              <button class="cert-nav next" id="certNext" aria-label="Next certificate">›</button>
+              <div class="cert-dots" id="certDots"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+        <h2 class="text-2xl font-bold mb-10">Contact</h2>
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div class="space-y-4">
+            <h3 class="font-semibold">Contact Information</h3>
+            <p class="text-zinc-600 dark:text-zinc-300">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out through any of the following channels.</p>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="card">
+                <div class="text-xs uppercase tracking-wider text-zinc-500 mb-1">Email</div>
+                <a href="mailto:aathithiyan01@gmail.com" class="font-medium text-brand-700 dark:text-brand-300">aathithiyan01@gmail.com</a>
+              </div>
+              <div class="card">
+                <div class="text-xs uppercase tracking-wider text-zinc-500 mb-1">Phone</div>
+                <a href="tel:+919384798402" class="font-medium">+91 9384798402</a>
+              </div>
+              <div class="card sm:col-span-2">
+                <div class="text-xs uppercase tracking-wider text-zinc-500 mb-1">Location</div>
+                <div class="font-medium">Madurai, Tamil Nadu</div>
+              </div>
+            </div>
+            <div class="pt-2">
+              <div class="text-xs uppercase tracking-wider text-zinc-500 mb-2">Follow Me</div>
+              <div class="flex items-center gap-2">
+                <a href="http://github.com/Athithiyan01" target="_blank" rel="noopener" class="inline-flex h-10 w-10 items-center justify-center rounded-lg" aria-label="GitHub" style="background:#24292e">
+                  <svg viewBox="0 0 16 16" class="h-5 w-5" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38l-.01-1.33c-2.23.49-2.7-1.07-2.7-1.07-.36-.93-.89-1.18-.89-1.18-.73-.5.06-.49.06-.49.81.06 1.24.83 1.24.83.72 1.23 1.9.87 2.36.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.53 7.53 0 012 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.45.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                </a>
+                <a href="http://linkedin.com/in/athithiyan01" target="_blank" rel="noopener" class="inline-flex h-10 w-10 items-center justify-center rounded-lg" aria-label="LinkedIn" style="background:#0a66c2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5" fill="#fff"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 5 2.12 5 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-1 1.8-2.2 3.8-2.2 4.1 0 4.8 2.7 4.8 6.2V24h-4v-7.1c0-1.7 0-3.9-2.4-3.9s-2.8 1.9-2.8 3.8V24h-4V8z"/></svg>
+                </a>
+                <a href="https://leetcode.com/u/Athithiyan01" target="_blank" rel="noopener" class="inline-flex h-10 w-10 items-center justify-center rounded-lg" aria-label="LeetCode" style="background:#FFA116">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="h-5 w-5" fill="#111"><path d="M30.2 11.4L21.6 20l8.6 8.6-2.8 2.8L16 20l12-12 2.2 2.2z"/><path d="M35 34H23v4h12a10 10 0 000-20H28v4h7a6 6 0 110 12z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <form class="space-y-4">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <input type="text" placeholder="Your name" class="input" required />
+              <input type="email" placeholder="Your email" class="input" required />
+            </div>
+            <textarea rows="4" placeholder="Message" class="input" required></textarea>
+            <button type="button" class="btn-primary">Send Message</button>
+            <p id="contactStatus" class="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-zinc-200 dark:border-zinc-800 py-8">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-zinc-600 dark:text-zinc-400">© <span id="year"></span> A Athithiyan. All rights reserved.</p>
+        <div class="flex gap-3">
+          <a href="http://linkedin.com/in/athithiyan01" target="_blank" rel="noopener" class="icon-link" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 5 2.12 5 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-1 1.8-2.2 3.8-2.2 4.1 0 4.8 2.7 4.8 6.2V24h-4v-7.1c0-1.7 0-3.9-2.4-3.9s-2.8 1.9-2.8 3.8V24h-4V8z"/></svg>
+          </a>
+          <a href="http://github.com/Athithiyan01" target="_blank" rel="noopener" class="icon-link" aria-label="GitHub">
+            <svg viewBox="0 0 16 16" class="h-5 w-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38l-.01-1.33c-2.23.49-2.7-1.07-2.7-1.07-.36-.93-.89-1.18-.89-1.18-.73-.5.06-.49.06-.49.81.06 1.24.83 1.24.83.72 1.23 1.9.87 2.36.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.53 7.53 0 012 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.45.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+  <style>
+    .nav-link { color:#3f3f46; transition:color .2s ease; }
+    .nav-link:hover { color:#4f46e5; }
+    .dark .nav-link { color:#e4e4e7; }
+    .dark .nav-link:hover { color:#818cf8; }
+
+    .mobile-link { padding:.5rem .75rem; border-radius:.5rem; transition:background-color .2s ease; }
+    .mobile-link:hover { background:#f4f4f5; }
+    .dark .mobile-link:hover { background:#18181b; }
+
+    .highlight { border:1px solid #e4e4e7; border-radius:.5rem; padding:.5rem .75rem; font-size:.875rem; color:#3f3f46; }
+    .dark .highlight { border-color:#27272a; color:#d4d4d8; }
+
+    .card { border:1px solid #e4e4e7; border-radius:1rem; padding:1.25rem; transition:box-shadow .2s ease, transform .2s ease; background:transparent; }
+    .card:hover { box-shadow:0 10px 30px -12px rgba(0,0,0,.25); }
+    .dark .card { border-color:#27272a; }
+    .card-title { font-weight:600; margin-bottom:1rem; }
+
+    .progress { display:flex; align-items:center; gap:.75rem; }
+    .progress span { min-width:90px; font-size:.875rem; }
+    .bar { position:relative; height:.5rem; width:100%; border-radius:9999px; background:#e4e4e7; overflow:hidden; }
+    .dark .bar { background:#27272a; }
+    .bar::after { content:""; position:absolute; inset:0 auto 0 0; height:100%; border-radius:9999px; background:linear-gradient(90deg,#4f46e5,#d946ef); width:var(--progress,0%); }
+
+    .project { border:1px solid #e4e4e7; border-radius:1rem; padding:1.25rem; transition:box-shadow .2s ease; background:rgba(255,255,255,.6); }
+    .dark .project { border-color:#27272a; background:rgba(24,24,27,.4); }
+    .project:hover { box-shadow:0 10px 30px -12px rgba(0,0,0,.25); }
+    .project-title { font-weight:600; margin-bottom:.5rem; }
+    .project-desc { font-size:.875rem; color:#52525b; }
+    .dark .project-desc { color:#d4d4d8; }
+    .stack { margin-top:.75rem; font-size:.75rem; font-weight:600; color:#71717a; }
+    .dark .stack { color:#a1a1aa; }
+    .project-links { margin-top:1rem; display:flex; gap:.5rem; }
+
+    .btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; border-radius:.5rem; background:#4f46e5; color:#fff; padding:.5rem 1rem; transition:background-color .2s ease; }
+    .btn-primary:hover { background:#4338ca; }
+    .btn-secondary { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; border-radius:.5rem; border:1px solid #d4d4d8; color:inherit; padding:.5rem 1rem; transition:background-color .2s ease; }
+    .btn-secondary:hover { background:#f4f4f5; }
+    .dark .btn-secondary { border-color:#3f3f46; }
+    .dark .btn-secondary:hover { background:#18181b; }
+
+    .timeline { display:flex; flex-direction:column; gap:1.25rem; }
+    .item { position:relative; border:1px solid #e4e4e7; border-radius:.75rem; padding:1rem; }
+    .dark .item { border-color:#27272a; }
+    .item-title { font-weight:500; }
+    .item-sub { font-size:.875rem; color:#52525b; }
+    .dark .item-sub { color:#d4d4d8; }
+    .cert { border:1px solid #e4e4e7; border-radius:.75rem; padding:1rem; font-size:.875rem; display:flex; align-items:center; justify-content:space-between; }
+    .dark .cert { border-color:#27272a; }
+    .note { font-size:.75rem; color:#71717a; }
+
+    .input { width:100%; border:1px solid #d4d4d8; border-radius:.5rem; background:#fff; color:inherit; padding:.5rem .75rem; outline:none; transition:box-shadow .2s ease, border-color .2s ease; }
+    .input:focus { border-color:#4f46e5; box-shadow:0 0 0 3px rgba(99,102,241,.35); }
+    .dark .input { background:#18181b; border-color:#3f3f46; }
+
+    .icon-link { display:inline-flex; height:2.5rem; width:2.5rem; align-items:center; justify-content:center; border-radius:.5rem; border:1px solid #d4d4d8; transition:background-color .2s ease; }
+    .icon-link:hover { background:#f4f4f5; }
+    .dark .icon-link { border-color:#3f3f46; }
+    .dark .icon-link:hover { background:#18181b; }
+  </style>
+</html>
+

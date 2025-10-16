@@ -1,0 +1,101 @@
+/* Tailwind is provided via CDN. This file can host custom styles if needed. */
+/* Keep minimal; most styling via utility classes and small CSS variables. */
+
+/* Smooth reveal animations (for non-critical progressive enhancement) */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typing caret blink for fallback (JS will handle typing text) */
+@keyframes caret {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: currentColor; }
+}
+#typed {
+  animation: caret 1s step-end infinite;
+}
+
+/* Provide CSS custom property control for progress bars */
+.bar { --progress: 0%; }
+
+/* Elegant light background pattern and dark fallback */
+body {
+  background-color: #eef6ff; /* pastel blue */
+  background-image: radial-gradient(circle at 20% 10%, rgba(59,130,246,.08), transparent 35%),
+                    radial-gradient(circle at 80% 0%, rgba(147,197,253,.06), transparent 40%);
+  background-attachment: fixed;
+}
+.dark body, body.dark { background-image: none; }
+
+/* Certificate slider */
+.cert-slider { position: relative; overflow: hidden; border:1px solid #e4e4e7; border-radius:1rem; }
+.dark .cert-slider { border-color:#27272a; }
+.cert-track { display: grid; grid-auto-flow: column; grid-auto-columns: 100%; transition: transform .4s ease; }
+.cert-card { display:block; }
+.cert-card img { width:100%; height:20rem; object-fit:cover; display:block; }
+.cert-caption { padding:.75rem 1rem; font-size:.875rem; display:flex; align-items:center; justify-content:space-between; }
+.cert-nav { position:absolute; top:50%; transform:translateY(-50%); height:2.25rem; width:2.25rem; border-radius:.5rem; border:1px solid #d4d4d8; background:#fff; color:#18181b; display:grid; place-items:center; cursor:pointer; }
+.cert-nav:hover { background:#f4f4f5; }
+.cert-nav.prev { left:.5rem; }
+.cert-nav.next { right:.5rem; }
+.dark .cert-nav { background:#18181b; color:#e4e4e7; border-color:#3f3f46; }
+.dark .cert-nav:hover { background:#0b0b0c; }
+.cert-dots { position:absolute; bottom:.5rem; left:0; right:0; display:flex; gap:.375rem; justify-content:center; }
+.cert-dots button { width:.5rem; height:.5rem; border-radius:9999px; background:#d4d4d8; border:none; }
+.cert-dots button.active { background:#4f46e5; }
+
+
+/* Contact form status styles */
+.status { font-size:.875rem; margin-top:.25rem; min-height:1.25rem; }
+.status.error { color:#dc2626; }
+.status.success { color:#16a34a; }
+
+/* Cards and project tiles backgrounds */
+.card {
+  background-color: #f0f7ff; /* soft pastel for skills cards */
+  border:1px solid #dbeafe;
+  transform: translateY(0);
+}
+.card:hover { transform: translateY(-2px); }
+.dark .card {
+  background: transparent;
+  border-color:#27272a;
+}
+
+.project {
+  background-color: #ffffff; /* clean white for project cards */
+  border:1px solid #e5e7eb;
+  transform: translateY(0);
+}
+.project:hover { transform: translateY(-2px); }
+.dark .project {
+  background: rgba(24,24,27,.4);
+  border-color:#27272a;
+}
+
+/* Skill badges */
+.skill-badges { display:flex; flex-wrap:wrap; gap:.5rem; }
+.badge { display:inline-flex; align-items:center; gap:.375rem; padding:.375rem .6rem; border-radius:.5rem; font-size:.75rem; font-weight:600; color:#0b1020; border:1px solid rgba(0,0,0,.06); }
+.dark .badge { color:#e5e7eb; border-color:#262626; }
+.badge svg { width:14px; height:14px; }
+.badge.blue { background:linear-gradient(180deg,#dbeafe,#bfdbfe); }
+.badge.yellow { background:linear-gradient(180deg,#fef9c3,#fde68a); }
+.badge.green { background:linear-gradient(180deg,#dcfce7,#bbf7d0); }
+.badge.violet { background:linear-gradient(180deg,#ede9fe,#ddd6fe); }
+.badge.orange { background:linear-gradient(180deg,#ffedd5,#fed7aa); }
+.badge.pink { background:linear-gradient(180deg,#ffe4e6,#fecdd3); }
+.badge.slate { background:linear-gradient(180deg,#e5e7eb,#cbd5e1); }
+
+/* Skill card header */
+.skill-head { display:flex; align-items:center; gap:.5rem; margin-bottom:.75rem; }
+.skill-icon { display:inline-grid; place-items:center; width:28px; height:28px; border-radius:.5rem; background:#eef2ff; color:#4f46e5; border:1px solid #e0e7ff; }
+.dark .skill-icon { background:#111827; color:#818cf8; border-color:#1f2937; }
+
+
+
